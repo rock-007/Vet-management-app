@@ -7,7 +7,6 @@ def get_status():
 
     result = run_sql(sql, values)
     if (len(result) == 0):
-
         return None
     else:
         return result[0][0]
