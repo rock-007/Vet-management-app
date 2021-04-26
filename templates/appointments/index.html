@@ -49,6 +49,11 @@
                         <option value="{{result[1][1].id}}">Dr. {{result[1][1].first_name}}</option>
                     </select>
                 </label>
+                {% for each in result[2]%}
+                <h3>{{each.first_name}}</h3>
+
+                <h3>{{each.availability}}</h3>
+                {% endfor %}
                 
             </li>
         </ul>
