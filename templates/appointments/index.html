@@ -1,0 +1,61 @@
+{% extends "base.html"%}
+
+{% block content %}
+<div>
+    {% if result== [] %}
+    <form action="/appointments" method="post">
+
+        <label for="">
+            <input type="text" name="pet_name" placeholder="Enter Pet name here">
+        </label>
+        <label for="">
+            <input type="text" name="pet_name" placeholder="Enter pet DOB">
+        </label>
+        <label for="customer_first_name">
+            <input type="text" name="customer_first_name" placeholder="customer_first_name">
+        </label>
+        <label for="customer_last_name">
+            <input type="text" name="customer_last_name" placeholder="customer_last_name">
+        </label>
+        <input type="submit">
+
+    </form>
+    {%else%}
+    <div>
+        <ul>
+            <li>
+                <h1>{{result[0].name}}</h1>
+            </li>
+            <li>
+                <h2>{{result[0].date_of_birth}}</h2>
+            </li>
+            <li>
+                <h3>{{result[0].customer.first_name}}</h3>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <form action="">
+        <ul>
+            <li>
+                <label for="pet_name" value="pet_name">
+                    <input type="text" name="pet_name" placeholder="{{result.name}}" readonly>
+                </label>
+            </li>
+            <li>
+                <label for="doctor_selection" value="select doctor:">
+                    <select name="doctor_selection" id="">
+                        <option value="{{result[1][0].id}}">Dr. {{result[1][0].first_name}}</option>
+                        <option value="{{result[1][1].id}}">Dr. {{result[1][1].first_name}}</option>
+                    </select>
+                </label>
+                
+            </li>
+        </ul>
+        
+    </form>
+
+    {%endif%}
+</div>
+{% endblock %}
+

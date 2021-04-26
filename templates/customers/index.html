@@ -2,7 +2,27 @@
 
 {% block content %}
 <div>
-    <h1>Hello World:123</h1>
-    <p>{{email}}</p>
+    <form action="/customer" method="post">
+        <label for="first_name">
+            <input type="text" name="first_name" placeholder="first_name">
+        </label>
+        <label for="last_name">
+            <input type="text" name="last_name" placeholder="last_name">
+        </label>
+        <label for="address">
+            <input type="text" name="address" placeholder="address">
+        </label>
+        <label for="pet_name">
+            <input type="text" name="pet_name" placeholder="pet_name">
+        </label>
+        <label for="type" value="type">
+            <input type="text" name="type">
+        </label>
+        <label for="date_of_birth" value="DOB">
+            <input type="date" name="date_of_birth">
+        </label>
+        <button type="submit">Submit</button>
+
+    </form>
 </div>
 {% endblock %}

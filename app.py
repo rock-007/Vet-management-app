@@ -3,11 +3,15 @@ import repositories.admin_repository as admin_repository
 import pdb
 
 from controllers.login import login_blueprint
+from controllers.customers import customer_blueprint
+from controllers.appointments import appointment_blueprint
 
 
 app = Flask(__name__)
 
 app.register_blueprint(login_blueprint)
+app.register_blueprint(customer_blueprint)
+app.register_blueprint(appointment_blueprint)
 
 
 @app.route("/", methods=["GET", "POST"])
