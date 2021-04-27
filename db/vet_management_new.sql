@@ -10,6 +10,8 @@ CREATE TABLE vets (
 CREATE TABLE pets (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
+    type VARCHAR(255),
+    contact_number text,
     date_of_birth DATE
 );
 
