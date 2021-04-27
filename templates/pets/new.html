@@ -1,31 +1,81 @@
 {% extends "base.html"%}
 
 {% block content %}
-<h2> Add a New Pet</h2>
-<form action="/add-pet" method="POST">
-    <div>
+
+<header id="h1">header</header>
+
+<div class="wrapper">
+    <div class="sidenav">
+
+        <h1>Menu</h1>
+        <h5>Pet section</h5>
         <ul>
-            <li>
-                <label for="pet_name">Name:</label>
-                <input type="text" id="pet_name" name="pet_name" placeholder=" PLease enter name here">
-            </li>
-            <li>
-                <label for="date_of_birth">Date of Birth:</label>
-                <input type="date" id="date_of_birth" name="date_of_birth">                  
-            </li>
-            <li>
-                <label for="pet_name">Animal Type:</label>
-                <input type="text" id="pet_type" name="pet_type" placeholder=" PLease enter type here">
-            </li>
-            <li>
-                <button type="submit">Submit</button>
-            </li>
+            <li> <a href="/appointments">Book Appointment</a> </li>
         </ul>
+        <ul>
+            <li><a href="/add-pet">Register Pet</a></li>
+        </ul>
+        <ul>
+            <li><a href="/pet">Pet Record</a></li>
+        </ul>
+
+        <h5>Admin section</h5>
+        <ul>
+            <li><a href="/appointments">Book Appointment</a></li>
+        </ul>
+        <ul>
+            <li><a href="/add-vet">Register Vet</a></li>
+        </ul>
+        <ul>
+            <li><a href="/pet">Vet Record</a></li>
+        </ul>
+
         
-        
+    </ul>
+    </div>
+
+    <div class="main-content">
+            <h2> Add a New Pet</h2>
+            <form action="/add-pet" method="POST" class="forms">
+
+                    <ul>
+                        <li>
+                            <label for="pet_name">Name:</label>
+                            <input type="text" id="pet_name" name="pet_name" placeholder=" PLease enter name here">
+                        </li>
+                        <li>
+                            <label for="date_of_birth">Date of Birth:</label>
+                            <input type="date" id="date_of_birth" name="date_of_birth">                  
+                        </li>
+                        <li>
+                            <label for="pet_name">Animal Type:</label>
+                            <input type="text" id="pet_type" name="pet_type" placeholder=" PLease enter type here">
+                        </li>
+                        <li>
+                            <button type="submit">Submit</button>
+                        </li>
+                    </ul>
+                    
+                    
+            
+            
+            </form>
     </div>
 
 
-</form>
+
+
+
+
+</div>
+
+
+
+<!-- <section id="left-bar">2</section>
+<section class="main-content">
+    <p>dsfasdfsdaf sdaf sdaf sadfas dfads asdf sdafsdfs df</p>
+</section> -->
+<footer id="h4">@copy 2021 by Umair</footer>
+
 
 {% endblock %}

@@ -1,0 +1,24 @@
+.forms{
+
+    background-color:burlywood;
+    color:white;
+    max-width: 500px;
+    min-height:44vh ;
+    padding-top:2rem;
+}
+.forms  label {
+
+	display:block;
+
+
+}
+
+.forms li {
+    list-style-type: none;
+    width:100%
+
+}
+.forms input {
+    width:90%
+
+}

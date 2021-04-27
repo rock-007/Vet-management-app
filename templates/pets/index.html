@@ -1,19 +1,82 @@
+
+
 {% extends "base.html"%}
 
 {% block content %}
-<section>
-    <p>Pet Inforamtion:</p>
-    <ul>
-        <li>Pet Name: {{pet.pet_name}}</li>
-        <li>Pet Name: {{pet.type}}</li>
-        <li>Pet Name: {{pet.date_of_birth}}</li>
-        <li>Pet Name: {{pet.id}}</li>
-        <form action="/pet/{{pet.id}}/delete" method="post">
-            <input type="submit" value="delete">
-        </form>
-        <form action="/pet/{{pet.id}}/edit" >
-            <input type="submit" value="edit">
-        </form>
+<header id="h1">header</header>
+
+<div class="wrapper">
+    <div class="sidenav">
+
+        <h1>Menu</h1>
+        <h5>Pet section</h5>
+        <ul>
+            <li> <a href="/appointments">Book Appointment</a> </li>
+        </ul>
+        <ul>
+            <li><a href="/add-pet">Register Pet</a></li>
+        </ul>
+        <ul>
+            <li><a href="/pet">Pet Record</a></li>
+        </ul>
+
+        <h5>Admin section</h5>
+        <ul>
+            <li><a href="/appointments">Book Appointment</a></li>
+        </ul>
+        <ul>
+            <li><a href="/add-vet">Register Vet</a></li>
+        </ul>
+        <ul>
+            <li><a href="/pet">Vet Record</a></li>
+        </ul>
+
+        
     </ul>
-</section>
+    </div>
+
+    <div class="main-content">
+            <p>Pet Inforamtion:</p>
+            <div class="forms">
+            <ul>
+                <li>Pet Name: {{pet.pet_name}}</li>
+                <li>Pet type: {{pet.type}}</li>
+                <li>Pet Date of Birth: {{pet.date_of_birth}}</li>
+                <li>Pet Id: {{pet.id}}</li>
+            
+                <form action="/pet/{{pet.id}}/delete" method="post">
+                    <input type="submit" value="delete">
+                </form>
+                <form action="/pet/{{pet.id}}/edit" >
+                    <input type="submit" value="edit">
+                </form>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+<!-- <section id="left-bar">2</section>
+<section class="main-content">
+    <p>dsfasdfsdaf sdaf sdaf sadfas dfads asdf sdafsdfs df</p>
+</section> -->
+<footer id="h4">@copy 2021 by Umair</footer>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+

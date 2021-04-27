@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+
+{% block content %}
+<section>
+    <p>Pet Inforamtion:</p>
+    <form action="/pet", method="POST">
+    <ul>
+        <li>
+            <label for="pet_name">Pet Name:</label>
+            <input type="text" id="pet_name" name="pet_name" placeholder="Enter Pet Name here">
+        </li>
+        <li>
+            <label for="pet_date_of_birth">Pet Date of Birth:</label>
+            <input type="date" id="pet_date_of_birth" name="pet_date_of_birth" placeholder="Enter Pet Date of birth">
+        </li>
+        <input style="padding:5%" type="submit" value="Submit">
+
+    </form>
+
+    </ul>
+</section>
+{% endblock %}

@@ -48,4 +48,11 @@ def update_pet_details(pet):
     sql ="UPDATE pets SET(name, type, date_of_birth) =(%s, %s, %s) WHERE id = %s"
     values=[pet.pet_name, pet.type, pet.date_of_birth, pet.id]
     run_sql(sql,values)
-    #pdb.set_trace()
+
+
+def search_pet_by_name_date_of_birth(pet_name, pet_date_of_birth):
+    sql = "SELECT * FROM pets WHERE  name = %s AND date_of_birth = %s"
+    values=[pet_name, pet_date_of_birth]
+    return run_sql(sql,values)[0]
+    pdb.set_trace()
+
