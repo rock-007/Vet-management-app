@@ -1,0 +1,23 @@
+DROP TABLE IF EXISTS Appointments;
+DROP TABLE IF EXISTS pets;
+DROP TABLE IF EXISTS vets;
+
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255)
+);
+
+CREATE TABLE pets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    date_of_birth DATE
+);
+
+
+CREATE TABLE Appointments (
+    id SERIAL PRIMARY KEY,
+    date DATE,
+    time TIME,
+    vet_id SERIAL REFERENCES vets(id),
+    pets_id SERIAL REFERENCES pets(id)
+);

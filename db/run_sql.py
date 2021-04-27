@@ -5,7 +5,7 @@ def run_sql(sql, values = None):
     results = []
     conn = None
     try:
-        conn = psycopg2.connect("dbname='vet_management'")
+        conn = psycopg2.connect("dbname='vet_management_new'")
         cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         cur.execute(sql, values)
         conn.commit()
