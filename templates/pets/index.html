@@ -7,10 +7,11 @@
         <li>Pet Name: {{pet.pet_name}}</li>
         <li>Pet Name: {{pet.type}}</li>
         <li>Pet Name: {{pet.date_of_birth}}</li>
+        <li>Pet Name: {{pet.id}}</li>
         <form action="/pet/{{pet.id}}/delete" method="post">
             <input type="submit" value="delete">
         </form>
-        <form action="/pet/{{pet.id}}/edit" method="get">
+        <form action="/pet/{{pet.id}}/edit" >
             <input type="submit" value="edit">
         </form>
     </ul>

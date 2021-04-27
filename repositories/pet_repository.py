@@ -24,7 +24,7 @@ def search_pet_by_id(pet_id):
     sql = "SELECT * FROM pets WHERE  id = %s "
     values =[pet_id]
     result = run_sql(sql,values)[0]
-    pet = Pet(result['name'],result['date_of_birth'],result['type'])
+    pet = Pet(result['name'],result['date_of_birth'],result['type'], pet_id)
     #pdb.set_trace()
     return pet
 
@@ -38,13 +38,14 @@ def search_pet_by_id(pet_id):
 #     #pdb.set_trace()
 #     return pet
 
-def delete_pet_by_id(id):
+def delete_pet_by_id(pet_id):
     sql ="DELETE FROM pets WHERE id = %s"
-    values=[id]
+    values=[pet_id]
     run_sql(sql,values)
     #pdb.set_trace()
 
 def update_pet_details(pet):
     sql ="UPDATE pets SET(name, type, date_of_birth) =(%s, %s, %s) WHERE id = %s"
     values=[pet.pet_name, pet.type, pet.date_of_birth, pet.id]
-
+    run_sql(sql,values)
+    #pdb.set_trace()

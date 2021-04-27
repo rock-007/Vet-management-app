@@ -1,0 +1,20 @@
+{% extends "base.html"%}
+
+{% block content %}
+<section>
+    <p>Pet Inforamtion:</p>
+    <ul>     
+
+        <li>Pet Name: {{vet.first_name}}</li>
+        <li>Pet Name: {{vet.last_name}}</li>
+        <li>Pet Name: {{vet.telephone_number}}</li>
+        <li>Pet Name: {{vet.id}}</li>
+        <form action="/vet/{{vet.id}}/delete" method="post">
+            <input type="submit" value="delete">
+        </form>
+        <form action="/vet/{{vet.id}}/edit" >
+            <input type="submit" value="edit">
+        </form>
+    </ul>
+</section>
+{% endblock %}

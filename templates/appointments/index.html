@@ -22,7 +22,7 @@
     </form>
     {%else%}
     <div>
-        <ul>
+        <!-- <ul>
             <li>
                 <h1>{{result[0].name}}</h1>
             </li>
@@ -32,22 +32,22 @@
             <li>
                 <h3>{{result[0].customer.first_name}}</h3>
             </li>
-        </ul>
+        </ul> -->
     </div>
     <br>
     <form action="">
         <ul>
             <li>
-                <label for="pet_name" value="pet_name">
+                <!-- <label for="pet_name" value="pet_name">
                     <input type="text" name="pet_name" value="{{result[0].id}}" placeholder="{{result[0].name}}" readonly>
-                </label>
+                </label> -->
             </li>
             <li>
-                <label for="doctor_selection" value="select doctor:">
+                <!-- <label for="doctor_selection" value="select doctor:">
                     <select name="doctor_selection" id="">
                         <option value="{{result[1][0].id}}">Dr. {{result[1][0].first_name}}</option>
                         <option value="{{result[1][1].id}}">Dr. {{result[1][1].first_name}}</option>
-                    </select>
+                    </select> -->
                 </label>
                 {% for each in result[2]%}
                 <h3>{{each.first_name}}</h3>

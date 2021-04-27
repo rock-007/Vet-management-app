@@ -18,6 +18,7 @@ def add_pet():
         pet = Pet(pet_name, date_of_birth, pet_type)
         result = pet_repository.register_pet(pet)
         # pdb.set_trace()
+        print(result.id)
         return redirect(url_for('pet.pet_details', id=result.id))    
     else:
         return render_template('pets/new.html')
@@ -44,6 +45,9 @@ def update_pet_details(id):
         pet_name = request.form['pet_name']
         date_of_birth = request.form['date_of_birth']
         pet_type = request.form['pet_type']
-        pet = Pet(pet_name, date_of_birth, pet_type)
-        result = pet_repository.update_pet_details(pet)
+        pet_id = request.form['pet_id']
+        pet = Pet(pet_name, date_of_birth, pet_type, pet_id)
+        pet_repository.update_pet_details(pet)
+        pdb.set_trace()
+        return render_template('pets/index.html', pet = pet)
         

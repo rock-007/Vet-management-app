@@ -17,43 +17,49 @@ def select_vets():
 
 
 def available_appointments(vets):
-    index_1 = 0
-    index_2 = 0
-    index_3 = 0
     todays_date = datetime.now().date()
     #setting 5-NextDates as keys for availablity
-    temp = []
-
-
-
-
     # each vet below
-    while index_2 < len(vets):
-        print(index_2)
-        
-        temp.append(Availability(vets[index_2].id))
+    for vet in vets:
+        vet.availability =Availability()
 
-        while index_1 < 5:
-            temp[index_2].day_time[todays_date+timedelta(days=index_1)] = [time(9,0), time(10,0), time(11,0)]
-            index_1 += 1
-        
-        sql= "SELECT date,time,vet_id FROM appointments WHERE vet_id = %s AND date > %s AND date < %s"
-        values = [vets[index_2].id, todays_date, todays_date + timedelta(days=5)]
+        sql= "SELECT date,time FROM appointments WHERE vet_id = %s AND date > %s AND date < %s"
+        values = [vet.id, todays_date, todays_date + timedelta(days=5)]
         booked_slots = run_sql(sql, values)
         
-
-        while index_3 < 5:
-            for each_slot in booked_slots:
-                if each_slot[0] == todays_date+timedelta(days=index_3):
-                    print(index_2)
-                    print(each_slot['time'])
-                    print("xxx")
-                    print(temp[index_2].day_time[todays_date+timedelta(days=index_3)].remove(each_slot[1]))
-            index_3 += 1
-        pdb.set_trace()
-        vets[index_2].availability = temp[index_2].day_time    
-        index_2 += 1
-        
-
+        vet.availability.remove_slots(booked_slots)
+    #pdb.set_trace()        
     return vets
 
+#Create_vet
+def register_vet(vet):
+    sql= "INSERT INTO vets(first_name, last_name, telephone_number) VALUES(%s,%s,%s) RETURNING id"
+    values=[vet.first_name, vet.last_name, vet.telephone_number]
+    result = run_sql(sql,values)
+    #pdb.set_trace()
+    vet.id = result[0]['id']
+    return vet
+
+#Search_by_id
+def search_vet_by_id(vet_id):
+    sql = "SELECT * FROM vets WHERE  id = %s "
+    values =[vet_id]
+    result = run_sql(sql,values)[0]
+    vet = Vet(result['first_name'],result['last_name'],result['telephone_number'], vet_id)
+    #pdb.set_trace()
+    return vet
+
+#Delete_by_id
+def delete_vet_by_id(vet_id):
+    sql ="DELETE FROM vets WHERE id = %s"
+    values=[vet_id]
+    run_sql(sql,values)
+    #pdb.set_trace()
+
+
+#Update_Vet_details
+def update_vet_details(vet):
+    sql ="UPDATE vets SET(first_name, last_name, telephone_number) =(%s, %s, %s) WHERE id = %s"
+    values=[vet.first_name, vet.last_name, vet.telephone_number, vet.id]
+    run_sql(sql,values)
+    #pdb.set_trace()
