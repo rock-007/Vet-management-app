@@ -11,7 +11,7 @@ class Availability:
         todays_date = datetime.now().date()
 
         for delta in range(0,4):
-            day_time[todays_date+timedelta(days=delta)] = [time(9,0), time(10,0), time(11,0)]
+            day_time[todays_date+timedelta(days=delta)] = [time(9,0), time(10,0), time(11,0), time(14,00), time(15,00), time(16,00)]
         return day_time
 
 
