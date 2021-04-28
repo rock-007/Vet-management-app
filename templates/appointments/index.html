@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<header id="h1">header</header>
+<header id="h1" ><div class="fa  fa-lg"><i class="fa fa-paw" aria-hidden="true"></i>Vet Management App</div> </header>
 
 <div class="wrapper">
     <div class="sidenav">
@@ -32,18 +32,12 @@
     <div class="main-content">
 
 
-
-
-
-
-
-
-
         <div>
 
             <form action="/appointments" method="post" class="availability">
                 {% for each_vet in vets_availabilty %}
                 <h3> Dr. {{each_vet.first_name}} Availability</h3>
+                <input type="hidden" name="vet_id" id="vet_id" value={{each_vet.id}}>
                 {% for each_day in day_time_form_keys %}
         
                 <ul>
@@ -76,12 +70,7 @@
                 <label for="">
                     <input type="date" id="pet_date_of_birth" name="pet_date_of_birth" >
                 </label>
-                <!-- <label for="customer_first_name">
-                    <input type="text" name="customer_first_name" placeholder="customer_first_name">
-                </label>
-                <label for="customer_last_name">
-                    <input type="text" name="customer_last_name" placeholder="customer_last_name">
-                </label> -->
+
                 <input type="submit">
         
             </form>
