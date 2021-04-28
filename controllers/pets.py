@@ -15,7 +15,8 @@ def add_pet():
         pet_name = request.form['pet_name']
         date_of_birth = request.form['date_of_birth']
         pet_type = request.form['pet_type']
-        pet = Pet(pet_name, date_of_birth, pet_type)
+        owner_contact= request.form['owner_contact']
+        pet = Pet(pet_name, date_of_birth, pet_type, owner_contact)
         result = pet_repository.register_pet(pet)
         # pdb.set_trace()
         print(result.id)
@@ -27,7 +28,9 @@ def add_pet():
 @pet_blueprint.route("/pet", methods=["POST", "GET"])
 def search_pet_details():
         if(request.method == 'GET'):
-            return render_template('pets/search.html', pet = None)
+            all_pets = pet_repository.all_pets()
+            #pdb.set_trace()
+            return render_template('pets/search.html', pet = None, all_pets=all_pets)
         else:
             pet_name = request.form['pet_name']
             pet_date_of_birth = request.form['pet_date_of_birth']

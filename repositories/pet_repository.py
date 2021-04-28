@@ -56,3 +56,10 @@ def search_pet_by_name_date_of_birth(pet_name, pet_date_of_birth):
     return run_sql(sql,values)[0]
     #pdb.set_trace()
 
+def all_pets():
+    sql = "SELECT * FROM pets"
+    values=[]
+    return run_sql(sql,values)
+
+
+

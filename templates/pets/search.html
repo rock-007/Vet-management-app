@@ -1,22 +1,96 @@
 {% extends "base.html"%}
 
 {% block content %}
-<section>
-    <p>Pet Inforamtion:</p>
-    <form action="/pet", method="POST">
-    <ul>
-        <li>
-            <label for="pet_name">Pet Name:</label>
-            <input type="text" id="pet_name" name="pet_name" placeholder="Enter Pet Name here">
-        </li>
-        <li>
-            <label for="pet_date_of_birth">Pet Date of Birth:</label>
-            <input type="date" id="pet_date_of_birth" name="pet_date_of_birth" placeholder="Enter Pet Date of birth">
-        </li>
-        <input style="padding:5%" type="submit" value="Submit">
 
-    </form>
+<header id="h1">header</header>
+<div class="wrapper">
+    <div class="sidenav">
 
+        <h1>Menu</h1>
+            <h5>Pet section</h5>
+                <ul>
+                    <li><a href="/add-pet">Register Pet</a></li>
+                </ul>
+        <ul>
+            <li><a href="/pet">Pet Records</a></li>
+        </ul>
+
+        <h5>Admin section</h5>
+        <ul>
+            <li><a href="/appointments">Book Appointment</a></li>
+        </ul>
+        <ul>
+            <li><a href="/add-vet">Register Vet</a></li>
+        </ul>
+
+
+        
     </ul>
-</section>
+    </div>
+
+    <div class="main-content">
+        <p>Pet Inforamtion:</p>
+        <form action="/pet", method="POST" class="forms" style="max-height: 2px">
+        <ul>
+            <li>
+                <label for="pet_name">Pet Name:</label>
+                <input type="text" id="pet_name" name="pet_name" placeholder="Enter Pet Name here">
+            </li>
+            <li>
+                <label for="pet_date_of_birth">Pet Date of Birth:</label>
+                <input type="date" id="pet_date_of_birth" name="pet_date_of_birth" placeholder="Enter Pet Date of birth">
+            </li>
+            <input style="padding:5%" type="submit" value="Submit">
+        </ul>
+
+        </form>
+        <hr style="max-width: 500px; margin-left:0">
+        <table class="forms" style:"width:55%" >
+
+        <tr>
+            <head>
+            <th style:"width:55%">ID</th>
+            <th style:"width:55%">Pet_name</th>
+            <th style:"width:55%">Pet_type</th>
+            <th style:"width:55%">Date of Brith</th>
+            <th style:"height:55%">Owner Contact</th>
+            </tr>
+            </head>
+            <tbody>
+
+        {% for each_pet in all_pets %}
+        
+        <tr>
+            <td>{{each_pet.id}}</td>
+            <td>{{each_pet.name}}</td>
+            <td>{{each_pet.type}}</td>
+            <td>{{each_pet.date_of_birth}}</td>
+            <td>{{each_pet.contact_number}}</td>
+            </tr>
+
+        {% endfor %}
+            </tbody> 
+
+        </table>
+        
+        
+    
+
+    </div>
+
+</div>
+
+<footer id="h4">@copy 2021 by Umair</footer>
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

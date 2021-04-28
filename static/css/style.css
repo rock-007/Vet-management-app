@@ -13,28 +13,34 @@ header{
 footer{
     background-color: yellowgreen;
     bottom: 0;
-    position: absolute;
+    position: fixed;
     width:100%;
     min-height:8vh;
     text-align: center;
+    margin-top:1%
     
 
 }
 
 .wrapper .sidenav{
-    position:fixed;
+    position:relative;
     left:0;
     width:20vw;
     height:80vh;
     background-color: bisque;
     font-size: 1.8vw;
-    top:12%
+    top:4%
 }
 
 .wrapper .main-content{
     width:60vw;
     height:50vh;
     margin-left:40vw;
+    position:absolute;
+    top:10%;
+    margin-bottom: auto
+
+
 }
 
 .wrapper .sidenav h1{
