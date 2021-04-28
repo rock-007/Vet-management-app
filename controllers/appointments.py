@@ -36,9 +36,10 @@ def book_appointment_form():
     # result.append(pet)
     # result.append(vets)
     #result.append(vets_availabilty)
+    
+    all_appointments = appointment_repository.all_appointments()
     #pdb.set_trace()
-
-    return render_template('/appointments/index.html', vets_availabilty=vets_availabilty, day_time_form_keys= day_time_form_keys )
+    return render_template('/appointments/index.html', vets_availabilty=vets_availabilty, day_time_form_keys= day_time_form_keys, all_appointments= all_appointments )
 
 @appointment_blueprint.route("/appointments", methods=["POST"])
 def book_appointment():

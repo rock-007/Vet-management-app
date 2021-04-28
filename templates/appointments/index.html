@@ -41,7 +41,7 @@
 
         <div>
 
-            <form action="/appointments" method="post" class="form-app">
+            <form action="/appointments" method="post" class="availability">
                 {% for each_vet in vets_availabilty %}
                 <h3> Dr. {{each_vet.first_name}} Availability</h3>
                 {% for each_day in day_time_form_keys %}
@@ -85,6 +85,41 @@
                 <input type="submit">
         
             </form>
+
+            <hr style="max-width: 700px; margin-left:0">
+            <div class="recently-booked" >
+                <h3> Last Booked Appointments</h3>
+            <table style:"width:55%" >
+    
+            <tr>
+                <head>
+                <th style:"width:55%">ID</th>
+                <th style:"width:55%">Pet_name</th>
+                <th style:"width:55%">Pet_type</th>
+                <th style:"width:55%">Date of Brith</th>
+                <th style:"height:55%">Owner Contact</th>
+                <th style:"height:55%">Appointment Date</th>
+                </tr>
+                </head>
+                <tbody>
+            {% for each_appointment in all_appointments %}
+        
+            <tr>
+                <td>{{each_appointment['id']}}</td>
+                <td>{{each_appointment['name']}}</td>
+                <td>{{each_appointment['type']}}</td>
+                <td>{{each_appointment['date_of_birth']}}</td>
+                <td>{{each_appointment['contact_number']}}</td>
+                <td>{{each_appointment['date']}}</td>
+                </tr>
+    
+            {% endfor %}
+                </tbody> 
+    
+            </table>
+        </div>
+            <hr style="max-width: 500px; margin-left:0">
+
         
         </div>
     </div>
