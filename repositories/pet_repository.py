@@ -7,10 +7,9 @@ from  models.pet import Pet
 
 #register_pet
 def register_pet(pet):
-    sql= "INSERT INTO pets(name, date_of_birth, type) VALUES(%s,%s,%s) RETURNING id"
-    values=[pet.pet_name, pet.date_of_birth, pet.type]
+    sql= "INSERT INTO pets(name, type, contact_number, date_of_birth) VALUES(%s,%s, %s,%s) RETURNING id"
+    values=[pet.pet_name, pet.type, pet.owner_contact, pet.date_of_birth]
     result = run_sql(sql,values)
-    pdb.set_trace()
     pet.id = result[0]['id']
     return pet
 # def register_pet(pet):
@@ -24,7 +23,7 @@ def search_pet_by_id(pet_id):
     sql = "SELECT * FROM pets WHERE  id = %s "
     values =[pet_id]
     result = run_sql(sql,values)[0]
-    pet = Pet(result['name'],result['date_of_birth'],result['type'], pet_id)
+    pet = Pet(result['name'],result['date_of_birth'],result['type'],result['contact_number'], pet_id)
     #pdb.set_trace()
     return pet
 
@@ -44,9 +43,13 @@ def delete_pet_by_id(pet_id):
     run_sql(sql,values)
     #pdb.set_trace()
 
+
+
+
 def update_pet_details(pet):
-    sql ="UPDATE pets SET(name, type, date_of_birth) =(%s, %s, %s) WHERE id = %s"
-    values=[pet.pet_name, pet.type, pet.date_of_birth, pet.id]
+    sql ="UPDATE pets SET (name, type, contact_number, date_of_birth) = (%s,%s,%s,%s) WHERE id = %s"
+    values=[pet.pet_name, pet.type, pet.owner_contact, pet.date_of_birth, pet.id]
+    pdb.set_trace()
     run_sql(sql,values)
 
 

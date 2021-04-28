@@ -18,8 +18,6 @@ def add_pet():
         owner_contact= request.form['owner_contact']
         pet = Pet(pet_name, date_of_birth, pet_type, owner_contact)
         result = pet_repository.register_pet(pet)
-        # pdb.set_trace()
-        print(result.id)
         return redirect(url_for('pet.pet_details', id=result.id))    
     else:
         return render_template('pets/new.html')
@@ -43,6 +41,8 @@ def search_pet_details():
 @pet_blueprint.route("/pet/<id>", methods=["POST", "GET"])
 def pet_details(id):
     pet = pet_repository.search_pet_by_id(id)
+    #pdb.set_trace()
+
     return render_template('pets/index.html', pet = pet)
 
 #Delete_Pet_Info
@@ -62,7 +62,8 @@ def update_pet_details(id):
         date_of_birth = request.form['date_of_birth']
         pet_type = request.form['pet_type']
         pet_id = request.form['pet_id']
-        pet = Pet(pet_name, date_of_birth, pet_type, pet_id)
+        owner_contact = request.form['owner_contact']
+        pet = Pet(pet_name, date_of_birth, pet_type, owner_contact, pet_id)
         pet_repository.update_pet_details(pet)
         pdb.set_trace()
         return render_template('pets/index.html', pet = pet)
