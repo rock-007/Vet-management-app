@@ -5,6 +5,7 @@
     max-width: 500px;
     min-height:23vh ;
     padding-top:2rem;
+    
 }
 .forms  label {
 
@@ -21,4 +22,13 @@
 .forms input {
     width:90%
 
+}
+
+.form-app{
+    margin-top:5rem;
+    background-color:burlywood;
+    max-width: 700px;
+
+
+    
 }
