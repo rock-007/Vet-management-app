@@ -23,12 +23,12 @@ def available_appointments(vets):
     for vet in vets:
         vet.availability =Availability()
 
-        sql= "SELECT date,time FROM appointments WHERE vet_id = %s AND date > %s AND date < %s"
-        values = [vet.id, todays_date, todays_date + timedelta(days=5)]
+        sql= "SELECT date,time FROM appointments WHERE vet_id = %s AND date > %s AND date < %s OR date =%s"
+        values = [vet.id, todays_date, todays_date + timedelta(days=5), todays_date]
         booked_slots = run_sql(sql, values)
         
         vet.availability.remove_slots(booked_slots)
-    #pdb.set_trace()        
+        #pdb.set_trace()        
     return vets
 
 #Create_vet
@@ -63,3 +63,4 @@ def update_vet_details(vet):
     values=[vet.first_name, vet.last_name, vet.telephone_number, vet.id]
     run_sql(sql,values)
     #pdb.set_trace()
+

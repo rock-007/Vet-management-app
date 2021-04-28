@@ -2,75 +2,53 @@
 
 {% block content %}
 <div>
-    {% if result== [] %}
+
     <form action="/appointments" method="post">
+        {% for each_vet in vets_availabilty %}
+        <h3> Dr. {{each_vet.first_name}}</h3>
+        {{each_vet.availability}}
+        {% for each_day in day_time_form_keys %}
+
+        <ul>
+            <button>{{each_day}}<input style="background-color:yellow" type="radio" id="date_selected" name="date_selected" value="{{each_day}}"></button>
+                <!-- {{each_day}} -->
+                {% if each_day in each_vet.availability.day_time.keys() %}
+                    {% for each_slot in each_vet.availability.day_time[each_day]%}
+                    <li style="display: inline-block">
+                        <h5> <button>{{each_slot}}<input style="background-color:yellow" type="radio" id="slot_selected" name="slot_selected" value="{{each_slot}}">  </button></h5>
+                    </li>
+
+
+                    {% endfor %}
+                
+                {% endif %}
+                
+            
+        </ul>
+        {% endfor %}
+
+
+
+
+
+        {% endfor %}
 
         <label for="">
-            <input type="text" name="pet_name" placeholder="Enter Pet name here">
+            <input type="text"  id ="pet_name" name="pet_name" placeholder="Enter Pet name here">
         </label>
         <label for="">
-            <input type="text" name="pet_name" placeholder="Enter pet DOB">
+            <input type="date" id="pet_date_of_birth" name="pet_date_of_birth" >
         </label>
-        <label for="customer_first_name">
+        <!-- <label for="customer_first_name">
             <input type="text" name="customer_first_name" placeholder="customer_first_name">
         </label>
         <label for="customer_last_name">
             <input type="text" name="customer_last_name" placeholder="customer_last_name">
-        </label>
+        </label> -->
         <input type="submit">
 
     </form>
-    {%else%}
-    <div>
-        <!-- <ul>
-            <li>
-                <h1>{{result[0].name}}</h1>
-            </li>
-            <li>
-                <h2>{{result[0].date_of_birth}}</h2>
-            </li>
-            <li>
-                <h3>{{result[0].customer.first_name}}</h3>
-            </li>
-        </ul> -->
-    </div>
-    <br>
-    <form action="">
-        <ul>
-            <li>
-                <!-- <label for="pet_name" value="pet_name">
-                    <input type="text" name="pet_name" value="{{result[0].id}}" placeholder="{{result[0].name}}" readonly>
-                </label> -->
-            </li>
-            <li>
-                <!-- <label for="doctor_selection" value="select doctor:">
-                    <select name="doctor_selection" id="">
-                        <option value="{{result[1][0].id}}">Dr. {{result[1][0].first_name}}</option>
-                        <option value="{{result[1][1].id}}">Dr. {{result[1][1].first_name}}</option>
-                    </select> -->
-                </label>
-                {% for each in result[2]%}
-                <h3>{{each.first_name}}</h3>
 
-                <h3>{{each.availability}}</h3>
-                <table>
-                    
-                    <tr>
-                        hiii
-                    </tr>
-                    <tr>
-                        byyy
-                    </tr>
-                </table>
-                
-                {% endfor %}
-                
-            </li>
-        </ul>
-        
-    </form>
-
-    {%endif%}
 </div>
 {% endblock %}
 
