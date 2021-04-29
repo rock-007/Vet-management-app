@@ -29,7 +29,7 @@ In the end we also need to install the `psql` database ion local machine
 
 #  Structure
 
-`
+```bash
 .
 ├── __pycache__
 │   └── app.cpython-39.pyc
@@ -117,7 +117,7 @@ In the end we also need to install the `psql` database ion local machine
     ├── test_availability.py
     └── test_pet.py
 
-`
+```
 
 # Local_preview
 
