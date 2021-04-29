@@ -1,8 +1,38 @@
 {% extends "base.html"%}
 
 {% block content %}
-<section>
-    <p>Pet Inforamtion:</p>
+
+<header id="h1" ><div class="fa  fa-lg"><i class="fa fa-paw" aria-hidden="true"></i>Vet Management App</div> </header>
+
+<div class="wrapper">
+    <div class="sidenav">
+
+        <h1>Menu</h1>
+            <h5>Pet section</h5>
+                <ul>
+                    <li><a href="/add-pet">Register Pet</a></li>
+                </ul>
+        <ul>
+            <li><a href="/pet">Pet Records</a></li>
+        </ul>
+
+        <h5>Admin section</h5>
+        <ul>
+            <li><a href="/appointments">Book Appointment</a></li>
+        </ul>
+        <ul>
+            <li><a href="/add-vet">Register Vet</a></li>
+        </ul>
+
+
+        
+    </ul>
+    </div>
+
+    <div class="main-content">
+        <p>Pet Inforamtion:</p>
+
+        <div class="forms">
         <form action="/pet/{{pet.id}}/edit" method="post">
             <ul>
                 <li>
@@ -20,9 +50,27 @@
                 <label for="owner_contact" name="owner_contact">Date of Birth:</label>
                 <input type="text" id="owner_contact" name="owner_contact" value="{{pet.owner_contact}}">
             </li>
+        </li>
+        <label for="pet_id" name="pet_id">pet id:</label>
+        <input type="text"  id="pet_id" name="pet_id" value="{{pet.id}}" disabled="disabled" >
+    </li>
             </ul>
-            <input type="text"  id="pet_id" name="pet_id" value="{{pet.id}}" >
             <input type="submit" value="Submit">
         </form>
-</section>
+    </div>
+    </div>
+
+</div>
+
+<footer id="h4">@copy 2021 by Umair</footer>
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

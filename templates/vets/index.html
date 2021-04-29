@@ -1,20 +1,59 @@
 {% extends "base.html"%}
 
 {% block content %}
-<section>
-    <p>Pet Inforamtion:</p>
-    <ul>     
 
-        <li>Pet Name: {{vet.first_name}}</li>
-        <li>Pet Name: {{vet.last_name}}</li>
-        <li>Pet Name: {{vet.telephone_number}}</li>
-        <li>Pet Name: {{vet.id}}</li>
-        <form action="/vet/{{vet.id}}/delete" method="post">
-            <input type="submit" value="delete">
-        </form>
-        <form action="/vet/{{vet.id}}/edit" >
-            <input type="submit" value="edit">
-        </form>
+<header id="h1" ><div class="fa  fa-lg"><i class="fa fa-paw" aria-hidden="true"></i>Vet Management App</div> </header>
+
+<div class="wrapper">
+    <div class="sidenav">
+
+        <h1>Menu</h1>
+            <h5>Pet section</h5>
+                <ul>
+                    <li><a href="/add-pet">Register Pet</a></li>
+                </ul>
+        <ul>
+            <li><a href="/pet">Pet Records</a></li>
+        </ul>
+
+        <h5>Admin section</h5>
+        <ul>
+            <li><a href="/appointments">Book Appointment</a></li>
+        </ul>
+        <ul>
+            <li><a href="/add-vet">Register Vet</a></li>
+        </ul>
+
+
+        
     </ul>
-</section>
+    </div>
+
+    <div class="main-content">
+        
+        <p>Vet Inforamtion:</p>
+        <div class="forms">
+        <ul>     
+    
+            <li>Pet Name: {{vet.first_name}}</li>
+            <li>Pet Name: {{vet.last_name}}</li>
+            <li>Pet Name: {{vet.telephone_number}}</li>
+            <li>Pet Name: {{vet.id}}</li>
+            <form action="/vet/{{vet.id}}/delete" method="post">
+                <input type="submit" value="delete">
+            </form>
+            <form action="/vet/{{vet.id}}/edit" method="get">
+                <input type="submit" value="edit">
+            </form>
+
+        </ul>
+    </div>
+
+    </div>
+
+</div>
+
+<footer id="h4">@copy 2021 by Umair</footer>
+
+
 {% endblock %}
