@@ -9,4 +9,4 @@ class TestPet(unittest.TestCase):
 
 
     def test_pet_name(self):
-        self.assertEqual("Dolly",self.pet_1.pet_name['2021-04-30'].time)
+        self.assertEqual("Dolly",self.pet_1.pet_name)
