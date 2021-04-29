@@ -6,14 +6,18 @@ def get_status():
     values= [True]
 
     result = run_sql(sql, values)
+
     if (len(result) == 0):
+
         return None
     else:
+        
         return result[0][0]
 
 
 # Set_admin_email_that_is_logging_in
 def set_status(email):
+
     if(get_status() == None):
         sql= "UPDATE admins SET login_status=%s RETURNING email"
         values=[True]

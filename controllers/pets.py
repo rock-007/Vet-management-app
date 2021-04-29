@@ -22,40 +22,46 @@ def add_pet():
     else:
         return render_template('pets/new.html')
 
+
 #Search_Pet_Form
 @pet_blueprint.route("/pet", methods=["POST", "GET"])
 def search_pet_details():
+
         if(request.method == 'GET'):
             all_pets = pet_repository.all_pets()
-            #pdb.set_trace()
+            
             return render_template('pets/search.html', pet = None, all_pets=all_pets)
         else:
             pet_name = request.form['pet_name']
             pet_date_of_birth = request.form['pet_date_of_birth']
             pet = pet_repository.search_pet_by_name_date_of_birth(pet_name, pet_date_of_birth)
-            return render_template('pets/index.html', pet = pet)
 
+            return render_template('pets/index.html', pet = pet)
 
 
 #Search_Pet_Info
 @pet_blueprint.route("/pet/<id>", methods=["POST", "GET"])
 def pet_details(id):
     pet = pet_repository.search_pet_by_id(id)
-    #pdb.set_trace()
 
     return render_template('pets/index.html', pet = pet)
+
 
 #Delete_Pet_Info
 @pet_blueprint.route("/pet/<id>/delete", methods=["POST", "GET"])
 def delete_pet_by_id(id):
     pet_repository.delete_pet_by_id(id)
+
     return redirect('/add-pet')
+
 
 #Update_pet_info
 @pet_blueprint.route("/pet/<id>/edit", methods=["POST", "GET"])
 def update_pet_details(id):
+
     if(request.method == 'GET'):
         pet = pet_repository.search_pet_by_id(id)
+
         return render_template('pets/edit.html', pet = pet)
     else:
         pet_name = request.form['pet_name']
@@ -66,5 +72,6 @@ def update_pet_details(id):
         pet = Pet(pet_name, date_of_birth, pet_type, owner_contact, pet_id)
         pet_repository.update_pet_details(pet)
         pdb.set_trace()
+
         return render_template('pets/index.html', pet = pet)
         
