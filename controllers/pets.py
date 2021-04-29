@@ -71,7 +71,6 @@ def update_pet_details(id):
         owner_contact = request.form['owner_contact']
         pet = Pet(pet_name, date_of_birth, pet_type, owner_contact, pet_id)
         pet_repository.update_pet_details(pet)
-        pdb.set_trace()
 
         return render_template('pets/index.html', pet = pet)
         

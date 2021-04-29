@@ -30,7 +30,6 @@ def delete_pet_by_id(pet_id):
 def update_pet_details(pet):
     sql ="UPDATE pets SET (name, type, contact_number, date_of_birth) = (%s,%s,%s,%s) WHERE id = %s"
     values=[pet.pet_name, pet.type, pet.owner_contact, pet.date_of_birth, pet.id]
-    pdb.set_trace()
     run_sql(sql,values)
 
 def search_pet_by_name_date_of_birth(pet_name, pet_date_of_birth):

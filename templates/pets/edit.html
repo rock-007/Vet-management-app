@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<header id="h1" ><div class="fa  fa-lg"><i class="fa fa-paw" aria-hidden="true"></i>Vet Management App</div> </header>
+<header id="h1" ><div><i class="fa fa-paw fa-4x " aria-hidden="true"></i><h3 class="fa  fa-2x">Vet Management App</h3></div> </header>
 
 <div class="wrapper">
     <div class="sidenav">
@@ -47,12 +47,16 @@
                     <label for="date_of_birth" name="date_of_birth">Date of Birth:</label>
                     <input type="text" id="date_of_birth" name="date_of_birth" value="{{pet.date_of_birth}}">
                 </li>
+                <li> 
                 <label for="owner_contact" name="owner_contact">Date of Birth:</label>
                 <input type="text" id="owner_contact" name="owner_contact" value="{{pet.owner_contact}}">
-            </li>
+                </li>
+                <li>
+            <label for="pet_id" name="pet_id">pet id:</label>
+        <input type="text"  id="pet_id" name="pet_id" value="{{pet.id}}" readonly = "readonly"  >
+    </li>
         </li>
-        <label for="pet_id" name="pet_id">pet id:</label>
-        <input type="text"  id="pet_id" name="pet_id" value="{{pet.id}}" disabled="disabled" >
+        
     </li>
             </ul>
             <input type="submit" value="Submit">
