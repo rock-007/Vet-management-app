@@ -41,15 +41,14 @@
                 {% for each_day in day_time_form_keys %}
         
                 <ul>
-                    <button>{{each_day}}<input style="background-color:yellow" type="radio" id="date_selected" name="date_selected" value="{{each_day}}"></button>
+                    <button>{{each_day}}<input type="radio" id="date_selected" name="date_selected" value="{{each_day}}"></button>
                         <!-- {{each_day}} -->
                         {% if each_day in each_vet.availability.day_time.keys() %}
                             {% for each_slot in each_vet.availability.day_time[each_day]%}
                             <li style="display: inline-block">
-                                <h5> <button>{{each_slot}}<input style="background-color:yellow" type="radio" id="slot_selected" name="slot_selected" value="{{each_slot}}">  </button></h5>
+                                <h5> <button>{{each_slot}}<input type="radio" id="slot_selected" name="slot_selected" value="{{each_slot}}">  </button></h5>
                             </li>
-        
-                            
+                                    
                             {% endfor %}
                         <hr>
                         {% endif %}
@@ -57,10 +56,6 @@
                     
                 </ul>
                 {% endfor %}
-        
-        
-        
-        
         
                 {% endfor %}
         <h3>Enter Pets Detail</h3>
