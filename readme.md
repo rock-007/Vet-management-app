@@ -6,7 +6,7 @@ This App is designed for the Vet Hospital, where it can manage the day to day ac
 
 The app can perform the below functionality
 
--Register Pet/Vet
+- Register Pet/Vet
 - Search Pet/Vet
 - Delete Pet/Vet
 - Book Appointments
