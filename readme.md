@@ -122,3 +122,7 @@ In the end we also need to install the `psql` database ion local machine
 # Local_preview
 
 Home page will be available by default at  http://localhost:5050
+
+# Deployed_preview
+
+https://vet-management-app-1.herokuapp.com/
